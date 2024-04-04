@@ -9,7 +9,11 @@ export default {
     colors: {
       'preto': '#161616',
       'dark': '#111111',
-      'white': '#DFDFDF'
+      'white': '#DFDFDF',
+      'cinza': '#C7C3D3',
+      'accent': '#E1BAC5',
+      'secondary': '#CEC4EF',
+      'transparente': 'transparent',
     }
   },
   plugins: [],
