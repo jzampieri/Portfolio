@@ -2,9 +2,9 @@ import {} from 'react'
 
 function About() {
     return(
-        <div>
-
-        </div>
+        <section className='min-h-screen bg-dark text-white'>
+            
+        </section>
     )
 }
 

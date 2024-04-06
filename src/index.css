@@ -11,3 +11,13 @@
   box-sizing: border-box;
   font-family: 'Exo', sans-serif;
 }
+
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #6774F5;
+}
+::-webkit-scrollbar-track{
+  background-color: #161616;
+}

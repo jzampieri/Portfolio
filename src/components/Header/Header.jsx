@@ -20,7 +20,7 @@ function Header () {
     }, []);
 
     return(
-        <header className={`flex fixed w-full text-center items-center justify-around transition-all duration-500 ease-in-out ${isScrolled ? 'bg-preto h-16' : 'bg-dark h-20'}`}>
+        <header className={`flex fixed w-full text-center z-10 items-center justify-around transition-all duration-500 ease-in-out ${isScrolled ? 'bg-preto h-16' : 'bg-dark h-20'}`}>
             <div>
                 <h1 className="text-white text-lg">ZAMPIERI</h1>
             </div>
