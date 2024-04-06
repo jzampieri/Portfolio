@@ -1,5 +1,5 @@
-a::before,
-a::after {
+header a::before,
+header a::after {
     content: "";
     position: absolute;
     width: 0;
@@ -10,23 +10,23 @@ a::after {
     transition: width 0.3s ease-in-out;
 }
 
-a::before {
+header a::before {
     transform: scaleX(1);
     transform-origin: 0 100%;
 }
 
-a::after {
+header a::after {
     transform: scaleX(0);
     transform-origin: 100% 100%;
 }
 
-a:hover::before {
+header a:hover::before {
     width: 100%;
     transform: scaleX(0);
     transform-origin: 0 100%;
 }
 
-a:hover::after {
+header a:hover::after {
     width: 100%;
     transform: scaleX(1);
     transform-origin: 100% 100%;

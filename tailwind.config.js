@@ -14,6 +14,7 @@ export default {
       'accent': '#E1BAC5',
       'secondary': '#CEC4EF',
       'transparente': 'transparent',
+      'gray': '#303033',
     }
   },
   plugins: [],
