@@ -1,0 +1,7 @@
+.rotate-icon {
+    transition: transform 0.3s ease-in-out;
+  }
+
+.rotate-icon:hover {
+    transform: rotateX(360deg);
+}
