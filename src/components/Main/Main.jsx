@@ -12,7 +12,7 @@ function Main() {
       const textoArray = elemento.textContent.split('');
       elemento.textContent = '';
       textoArray.forEach((letra, i) => {
-        setTimeout(() => elemento.textContent += letra, 100 * i);
+        setTimeout(() => elemento.textContent += letra, 155 * i);
       });
     };
 
