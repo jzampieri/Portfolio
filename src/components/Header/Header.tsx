@@ -19,7 +19,9 @@ const Header = () => {
       elevation={0}
       sx={{
         transition: 'all 0.3s ease',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'rgba(13, 13, 13, 0.6)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         height: scrolled ? '56px' : '80px',
         justifyContent: 'center',
         boxShadow: 'none',
@@ -41,27 +43,10 @@ const Header = () => {
             sx={{
                 position: 'relative',
                 textDecoration: 'none',
-                color: scrolled ? '#333' : '#111',
+                color: '#a1a1a1',
                 fontWeight: 500,
                 overflow: 'hidden',
                 px: '4px',
-                transition: 'color 0.3s ease',
-                '&::after': {
-                content: '""',
-                position: 'absolute',
-                left: 0,
-                bottom: 0,
-                height: '2px',
-                width: '0%',
-                backgroundColor: scrolled ? '#333' : '#111',
-                transition: 'width 0.3s ease',
-                },
-                '&:hover': {
-                color: scrolled ? '#000' : '#000',
-                },
-                '&:hover::after': {
-                width: '100%',
-                },
             }}
             >
             {['Sobre', 'Projetos', 'Contato'][i]}

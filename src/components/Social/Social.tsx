@@ -15,7 +15,7 @@ const SocialLinks = () => {
             target="_blank"
             size="small"
             sx={{
-              color: 'gray-500',
+              color: '#a1a1a1',
               transition: 'color 0.3s ease',
               '&:hover': {
                 color: '#181717',
@@ -32,7 +32,7 @@ const SocialLinks = () => {
             target="_blank"
             size="small"
             sx={{
-              color: 'gray-500',
+              color: '#a1a1a1',
               transition: 'color 0.3s ease',
               '&:hover': {
                 color: '#0077B5',
@@ -49,7 +49,7 @@ const SocialLinks = () => {
             target="_blank"
             size="small"
             sx={{
-              color: 'gray-500',
+              color: '#a1a1a1',
               transition: 'color 0.3s ease',
               '&:hover': {
                 color: '#FFCC00',
