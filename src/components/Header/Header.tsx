@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { AppBar, Toolbar, Box } from '@mui/material';
 
-const Header = () => {
+interface HeaderProps {
+  lang: 'pt' | 'en';
+  setLang: (lang: 'pt' | 'en') => void;
+}
+
+const Header = ({ lang }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -13,6 +18,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const links = lang === 'pt'
+    ? ['Sobre', 'Projetos', 'Contato']
+    : ['About', 'Projects', 'Contact'];
+
+  const hrefs = ['#sobre', '#projetos', '#contato'];
+
   return (
     <AppBar
       position="fixed"
@@ -20,7 +31,7 @@ const Header = () => {
       sx={{
         transition: 'all 0.3s ease',
         backgroundColor: 'rgba(13, 13, 13, 0.6)',
-        backdropFilter: 'blur(8px)',
+        backdropFilter: 'blur(4px)',
         WebkitBackdropFilter: 'blur(8px)',
         height: scrolled ? '56px' : '80px',
         justifyContent: 'center',
@@ -31,27 +42,33 @@ const Header = () => {
         sx={{
           display: 'flex',
           justifyContent: 'center',
+          alignItems: 'center',
           gap: scrolled ? '4rem' : '5rem',
           transition: 'all 0.3s ease',
         }}
       >
-        {['#sobre', '#projetos', '#contato'].map((href, i) => (
-            <Box
+        {hrefs.map((href, i) => (
+          <Box
             key={href}
             component="a"
             href={href}
             sx={{
-                position: 'relative',
-                textDecoration: 'none',
-                color: '#a1a1a1',
-                fontWeight: 500,
-                overflow: 'hidden',
-                px: '4px',
+              transition: '0.3s',
+              position: 'relative',
+              textDecoration: 'none',
+              color: '#a1a1a1',
+              fontWeight: 500,
+              overflow: 'hidden',
+              px: '4px',
+              '&:hover': {
+                color: '#fff',
+              },
             }}
-            >
-            {['Sobre', 'Projetos', 'Contato'][i]}
+          >
+            {links[i]}
           </Box>
         ))}
+
       </Toolbar>
     </AppBar>
   );

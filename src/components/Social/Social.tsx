@@ -1,12 +1,38 @@
-import { Box, IconButton, Tooltip } from '@mui/material';
+import { Box, IconButton, Tooltip, Switch } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import HuggingFaceIcon from '../../assets/HuggingFaceIcon';
 
-const SocialLinks = () => {
+interface SocialLinksProps {
+  lang: 'pt' | 'en';
+  setLang: (lang: 'pt' | 'en') => void;
+}
+
+const Social = ({ lang, setLang }: SocialLinksProps) => {
   return (
-    <Box className="fixed bottom-4 left-4 flex items-center gap-2 z-50">
-      <div className="w-[2px] h-40 bg-neutral-400" />
+    <Box className="fixed bottom-4 left-4 flex flex-col items-center gap-4 z-50">
+
+      <div className="flex flex-col items-center">
+        <Switch
+          checked={lang === 'en'}
+          onChange={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+          color="default"
+          size="small"
+          sx={{
+            '& .MuiSwitch-thumb': {
+              backgroundColor: '#888',
+            },
+            '& .MuiSwitch-track': {
+              backgroundColor: '#444',
+            },
+          }}
+        />
+        <span className="text-[10px] text-neutral-400 -mt-2 font-mono tracking-wide">
+          {lang.toUpperCase()}
+        </span>
+      </div>
+
+      <div className="w-[2px] h-40 bg-neutral-600" />
 
       <div className="flex flex-col gap-2">
         <Tooltip title="GitHub" placement="right">
@@ -18,7 +44,7 @@ const SocialLinks = () => {
               color: '#a1a1a1',
               transition: 'color 0.3s ease',
               '&:hover': {
-                color: '#181717',
+                color: '#ffffff',
               },
             }}
           >
@@ -64,4 +90,4 @@ const SocialLinks = () => {
   );
 };
 
-export default SocialLinks;
+export default Social;
