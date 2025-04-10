@@ -1,54 +1,106 @@
-# React + TypeScript + Vite
+# Julio Zampieri — Data Engineer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Engenheiro de dados apaixonado por IA, automações e experiências digitais. Estou sempre em busca de desafios que unam tecnologia e criatividade para transformar dados em soluções reais e impactantes.**
 
-Currently, two official plugins are available:
+Este é o meu portfólio pessoal, desenvolvido com foco em performance, responsividade e uma estética minimalista e interativa. A aplicação apresenta meus projetos, experiências e habilidades como engenheiro de dados, combinando animações modernas com uma estrutura robusta em React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📚 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React + TypeScript**
+- **Tailwind CSS**
+- **MUI (Material UI)**
+- **Framer Motion**
+- **i18n simples (PT/EN)** 
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Estrutura do Projeto
+
+```
+src/
+│
+├── components/            
+├── pages/Main/            
+├── assets/                
+├── hooks/                
+└── App.tsx                
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Como rodar localmente
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+git clone https://github.com/jzampieri/Portfolio
+cd Portfolio
+npm install
+npm run dev
 ```
+
+> **Requisitos:** Node.js 18+, npm ou yarn
+
+---
+
+## 📬 Contato
+
+- Email: contact.zampieri@gmail.com
+- LinkedIn: [linkedin.com/in/julio-cesar-zampieri](https://www.linkedin.com/in/julio-cesar-zampieri-3257b6267/)
+- GitHub: [github.com/jzampieri](https://github.com/jzampieri)
+
+---
+
+# Julio Zampieri — Data Engineer Portfolio
+
+**Data engineer passionate about AI, automation, and digital experiences. I'm always looking for challenges that combine technology and creativity to turn data into real, impactful solutions.**
+
+This is my personal portfolio, built with a focus on performance, responsiveness, and a minimalist yet interactive aesthetic. The application showcases my projects, experiences, and skills as a data engineer, combining modern animations with a solid React structure.
+
+---
+
+## 📚 Technologies Used
+
+- **React + TypeScript**
+- **Tailwind CSS** 
+- **MUI (Material UI)** 
+- **Framer Motion**
+- **Simple i18n (PT/EN)**
+
+---
+
+## Project Structure
+
+```
+src/
+│
+├── components/            
+├── pages/Main/            
+├── assets/                
+├── hooks/                 
+└── App.tsx               
+```
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/jzampieri/Portfolio
+cd Portfolio
+npm install
+npm run dev
+```
+
+> **Requirements:** Node.js 18+, npm or yarn
+
+---
+
+## 📬 Contact
+
+- Email: contact.zampieri@gmail.com
+- LinkedIn: [linkedin.com/in/julio-cesar-zampieri](https://www.linkedin.com/in/julio-cesar-zampieri-3257b6267/)
+- GitHub: [github.com/jzampieri](https://github.com/jzampieri)
+
+---
+
