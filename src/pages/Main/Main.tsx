@@ -26,8 +26,8 @@ function Main({ lang, setLang }: MainProps) {
           </h2>
         </article>
       </section>
-      <About lang={lang} setLang={setLang}/>
-      <Experience />
+      <About lang={lang}/>
+      <Experience lang={lang}/>
       <Social lang={lang} setLang={setLang} />
       <Footer />
     </main>
