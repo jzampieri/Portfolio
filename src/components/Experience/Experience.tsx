@@ -26,7 +26,12 @@ const Experience = ({ lang }: ExperienceProps) => {
   );
 
   return (
-    <section id="experiencia" className="py-20 px-4 flex justify-center">
+    <section id="experiencia" className="py-20 px-4 flex flex-col justify-center items-center">
+        <div className="px-6 pt-6 pb-2">
+            <p className="text-xs text-neutral-500 font-mono tracking-wide">
+                {lang === 'pt' ? '<experiencia/>' : '<experience/>'}
+            </p>
+        </div>
       <div className="w-full max-w-4xl bg-[#1a1a1a] rounded-lg shadow-lg border border-neutral-700">
 
         <div className="flex border-b border-neutral-700">
