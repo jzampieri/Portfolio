@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Experience from "../../components/Experience/Experience";
 import About from "../../components/About/About";
+import Projects from "../../components/Projects/Projects";
 
 interface MainProps {
   lang: 'pt' | 'en';
@@ -28,6 +29,7 @@ function Main({ lang, setLang }: MainProps) {
       </section>
       <About lang={lang}/>
       <Experience lang={lang}/>
+      <Projects/>
       <Social lang={lang} setLang={setLang} />
       <Footer />
     </main>

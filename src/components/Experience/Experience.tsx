@@ -37,7 +37,7 @@ const Experience = ({ lang }: ExperienceProps) => {
         <div className="flex border-b border-neutral-700">
           <button
             onClick={() => setActiveTab('profissional')}
-            className={`px-4 py-2 text-sm font-medium ${
+            className={`px-4 py-2 text-sm font-medium cursor-pointer ${
               activeTab === 'profissional' ? 'bg-[#2a2a2a] text-white' : 'text-neutral-400'
             } transition-all rounded-tl-lg`}
           >
@@ -45,7 +45,7 @@ const Experience = ({ lang }: ExperienceProps) => {
           </button>
           <button
             onClick={() => setActiveTab('projetos')}
-            className={`px-4 py-2 text-sm font-medium ${
+            className={`px-4 py-2 text-sm font-medium cursor-pointer ${
               activeTab === 'projetos' ? 'bg-[#2a2a2a] text-white' : 'text-neutral-400'
             } transition-all rounded-tr-lg`}
           >
@@ -90,14 +90,14 @@ const Experience = ({ lang }: ExperienceProps) => {
                     lang === 'pt' ?
                     (
                         <>
-                          Valoriza – Simulador de Laparoscopia{' '}
+                          Valoriza – Mentor Financeiro Consciente{' '}
                           <span className="text-neutral-400 font-normal text-sm">
                             | em parceria com a XP Inc.
                           </span>
                         </>
                       ) : (
                         <>
-                          Valoriza – Laparoscopic Simulator{' '}
+                          Valoriza – Mindful Money Mentor{' '}
                           <span className="text-neutral-400 font-normal text-sm">
                             | in partnership with XP Inc.
                           </span>
