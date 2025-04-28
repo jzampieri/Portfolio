@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
 interface ExperienceProps {
   lang: 'pt' | 'en';
 }
@@ -69,7 +68,7 @@ const Experience = ({ lang }: ExperienceProps) => {
                       ? 'Engenheiro de Software Júnior - CG CONTADORES'
                       : 'Junior Software Engineer - CG CONTADORES'
                   }
-                  date={lang === 'pt' ? 'Abr 2024 — Atual' : 'Apr 2024 — Present'}
+                  date={lang === 'pt' ? 'Abr 2024 — Abr 2025' : 'Apr 2024 — Apr 2025'}
                   description={
                     lang === 'pt'
                       ? 'Desenvolvimento de aplicações full stack, manutenção e desenvolvimento de ambiente Python DJANGO, criações de API REST, automações de tarefas, desenvolvimento de aplicações web utilizando ReactJS.'
