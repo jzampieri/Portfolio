@@ -14,6 +14,7 @@ import {
   SiDjango,
   SiJupyter,
 } from 'react-icons/si';
+import { FaAws } from "react-icons/fa";
 import { TbBrandCSharp } from "react-icons/tb";
 import { Tooltip } from '@mui/material';
 
@@ -70,6 +71,9 @@ const Technologies = ({ lang }: TechnologiesProps) => {
         },
         Csharp: {
           description: '💻 Linguagem de programação moderna e orientada a objetos da Microsoft. Utilizada principalmente para desenvolvimento de aplicações Windows, jogos com Unity, APIs e sistemas corporativos com .NET.',
+        },
+        AWS: {
+          description: '☁️ Plataforma de computação em nuvem da Amazon. Usada para hospedagem de sites, bancos de dados, servidores, aprendizado de máquina, APIs e muito mais em escala global.'
         }
       }
     },
@@ -120,6 +124,9 @@ const Technologies = ({ lang }: TechnologiesProps) => {
         },
         Csharp: {
           description: '💻 Modern object-oriented programming language developed by Microsoft. Commonly used for building Windows applications, games with Unity, APIs, and enterprise systems using .NET.',
+        },
+        AWS: {
+          description: '☁️ Amazon\'s cloud computing platform. Used for hosting websites, databases, servers, machine learning models, APIs, and more at a global scale.'
         }
       }
     }
@@ -131,6 +138,7 @@ const Technologies = ({ lang }: TechnologiesProps) => {
     { name: 'Csharp', icon: <TbBrandCSharp size={40} /> },
     { name: 'Node.js', icon: <SiNodedotjs size={40} /> },
     { name: 'Git', icon: <SiGit size={40} /> },
+    { name: 'AWS', icon: <FaAws size={40} /> },
     { name: 'React', icon: <SiReact size={40} /> },
     { name: 'Apache Spark', icon: <SiApachespark size={40} /> },
     { name: 'MySQL', icon: <SiMysql size={40} /> },
@@ -140,12 +148,14 @@ const Technologies = ({ lang }: TechnologiesProps) => {
     { name: 'TensorFlow', icon: <SiTensorflow size={40} /> },
     { name: 'Django', icon: <SiDjango size={40} /> },
     { name: 'Jupyter', icon: <SiJupyter size={40} /> },
-    { name: 'Algorithms', icon: <SiThealgorithms size={40} /> }
+    { name: 'Algorithms', icon: <SiThealgorithms size={40} /> },
   ];
 
   return (
     <main className="w-full flex items-center flex-col" id='skills'>
-      <h2 className="text-xs font-bold text-center mb-8 mt-14 text-neutral-500">{content[lang].title}</h2>
+      <h2 className="text-xs font-bold text-center mb-8 mt-14 text-neutral-500">
+        {content[lang].title}
+      </h2>
       <section className="w-4/5 flex justify-center">
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {technologies.map((tech, index) => (
@@ -158,7 +168,7 @@ const Technologies = ({ lang }: TechnologiesProps) => {
               placement="top"
               key={index}
             >
-              <div className="bg-[#1a1a1a] p-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+              <div className="bg-[#1a1a1a]/80 backdrop-blur-md p-6 rounded-2xl shadow-lg ring-0 hover:ring-4 hover:ring-white/10 hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center mb-4">{tech.icon}</div>
                 <h3 className="text-xl text-center text-white">{tech.name}</h3>
               </div>

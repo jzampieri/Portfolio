@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Experience from "../../components/Experience/Experience";
 import About from "../../components/About/About";
 import Technologies from "../../components/Technologies/Technologies"
+import Projects from "../../components/Projects/Projects";
 
 interface MainProps {
   lang: 'pt' | 'en';
@@ -12,7 +13,7 @@ interface MainProps {
 
 function Main({ lang, setLang }: MainProps) {
   return (
-    <main className="bg-[#0d0d0d] text-[#b9b9b9]">
+    <main className="bg-[#0d0d0d] text-[#b9b9b9]" id="home">
       <Header lang={lang} setLang={setLang} />
 
       <section className=" min-h-screen flex items-center justify-center text-center px-4">
@@ -30,6 +31,7 @@ function Main({ lang, setLang }: MainProps) {
       <About lang={lang}/>
       <Experience lang={lang}/>
       <Technologies lang={lang}/>
+      <Projects lang={lang}/>
       <Social lang={lang} setLang={setLang} />
       <Footer />
     </main>
