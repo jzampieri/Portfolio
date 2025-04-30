@@ -4,16 +4,17 @@ import gsap from 'gsap';
 
 interface HeaderProps {
   lang: 'pt' | 'en';
+  setLang: (lang: 'pt' | 'en') => void;
 }
 
 const Header = ({ lang }: HeaderProps) => {
   const [open, setOpen] = useState(false);
 
   const links = lang === 'pt'
-    ? ['Sobre', 'Projetos', 'Contato']
-    : ['About', 'Projects', 'Contact'];
+    ? ['Sobre', 'Projetos', 'Habilidades', 'Contato']
+    : ['About', 'Projects', 'Skills', 'Contact'];
 
-  const hrefs = ['#sobre', '#projetos', '#contato'];
+  const hrefs = ['#sobre', '#projetos', '#skills', '#contato'];
 
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -116,6 +117,7 @@ const Header = ({ lang }: HeaderProps) => {
               key={href}
               component="a"
               href={href}
+              onClick={toggleMenu}
               sx={{
                 transition: '0.3s',
                 position: 'relative',

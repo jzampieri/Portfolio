@@ -29,7 +29,7 @@ function Main({ lang, setLang }: MainProps) {
       </section>
       <About lang={lang}/>
       <Experience lang={lang}/>
-      <Technologies/>
+      <Technologies lang={lang}/>
       <Social lang={lang} setLang={setLang} />
       <Footer />
     </main>
