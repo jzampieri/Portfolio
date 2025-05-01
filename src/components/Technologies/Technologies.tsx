@@ -13,6 +13,8 @@ import {
   SiTensorflow,
   SiDjango,
   SiJupyter,
+  SiScikitlearn,
+  SiStreamlit
 } from 'react-icons/si';
 import { FaAws } from "react-icons/fa";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -74,7 +76,13 @@ const Technologies = ({ lang }: TechnologiesProps) => {
         },
         AWS: {
           description: '☁️ Plataforma de computação em nuvem da Amazon. Usada para hospedagem de sites, bancos de dados, servidores, aprendizado de máquina, APIs e muito mais em escala global.'
-        }
+        },
+        ScikitLearn: {
+          description: '🔍 Biblioteca de machine learning em Python para classificação, regressão, clustering e mais. Muito usada em projetos acadêmicos e aplicações de ciência de dados.'
+        },
+        Streamlit: {
+          description: '📊 Framework Python para criação rápida de dashboards interativos e aplicações web de dados. Muito utilizado para protótipos e visualização em projetos de Data Science.'
+        },        
       }
     },
     en: {
@@ -127,7 +135,13 @@ const Technologies = ({ lang }: TechnologiesProps) => {
         },
         AWS: {
           description: '☁️ Amazon\'s cloud computing platform. Used for hosting websites, databases, servers, machine learning models, APIs, and more at a global scale.'
-        }
+        },
+        ScikitLearn: {
+          description: '🔍 Python machine learning library for classification, regression, clustering and more. Widely used in academic projects and data science applications.'
+        },
+        Streamlit: {
+          description: '📊 Python framework for rapidly building interactive dashboards and data-driven web apps. Widely used for prototyping and visualizing Data Science projects.'
+        },        
       }
     }
   };
@@ -148,6 +162,8 @@ const Technologies = ({ lang }: TechnologiesProps) => {
     { name: 'TensorFlow', icon: <SiTensorflow size={40} /> },
     { name: 'Django', icon: <SiDjango size={40} /> },
     { name: 'Jupyter', icon: <SiJupyter size={40} /> },
+    { name: 'ScikitLearn', icon: <SiScikitlearn size={40} /> },
+    { name: 'Streamlit', icon: <SiStreamlit size={40} /> },
     { name: 'Algorithms', icon: <SiThealgorithms size={40} /> },
   ];
 

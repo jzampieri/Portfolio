@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 interface ExperienceProps {
   lang: 'pt' | 'en';
 }
@@ -12,7 +13,7 @@ const Experience = ({ lang }: ExperienceProps) => {
     date,
     description,
   }: {
-    title: string;
+    title: React.ReactNode;
     date: string;
     description: string;
   }) => (
@@ -26,13 +27,12 @@ const Experience = ({ lang }: ExperienceProps) => {
 
   return (
     <section id="experiencia" className="py-20 px-4 flex flex-col justify-center items-center">
-        <div className="px-6 pt-6 pb-2">
-            <p className="text-xs text-neutral-500 font-mono tracking-wide">
-                {lang === 'pt' ? '<experiencia/>' : '<experience/>'}
-            </p>
-        </div>
+      <div className="px-6 pt-6 pb-2">
+        <p className="text-xs text-neutral-500 font-mono tracking-wide">
+          {lang === 'pt' ? '<experiencia/>' : '<experience/>'}
+        </p>
+      </div>
       <div className="w-full max-w-4xl bg-[#1a1a1a] rounded-lg shadow-lg border border-neutral-700">
-
         <div className="flex border-b border-neutral-700">
           <button
             onClick={() => setActiveTab('profissional')}
@@ -86,22 +86,21 @@ const Experience = ({ lang }: ExperienceProps) => {
               >
                 <TimelineItem
                   title={
-                    lang === 'pt' ?
-                    (
-                        <>
-                          Valoriza – Mentor Financeiro Consciente{' '}
-                          <span className="text-neutral-400 font-normal text-sm">
-                            | em parceria com a XP Inc.
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          Valoriza – Mindful Money Mentor{' '}
-                          <span className="text-neutral-400 font-normal text-sm">
-                            | in partnership with XP Inc.
-                          </span>
-                        </>
-                      )
+                    lang === 'pt' ? (
+                      <>
+                        Valoriza – Mentor Financeiro Consciente{' '}
+                        <span className="text-neutral-400 font-normal text-sm">
+                          | em parceria com a XP Inc.
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        Valoriza – Mindful Money Mentor{' '}
+                        <span className="text-neutral-400 font-normal text-sm">
+                          | in partnership with XP Inc.
+                        </span>
+                      </>
+                    )
                   }
                   date="2025 - on going"
                   description={
@@ -112,22 +111,21 @@ const Experience = ({ lang }: ExperienceProps) => {
                 />
                 <TimelineItem
                   title={
-                    lang === 'pt' ?
-                    (
-                        <>
-                          LapIn – Simulador de Laparoscopia{' '}
-                          <span className="text-neutral-400 font-normal text-sm">
-                            | em parceria com a LEPIC
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          LapIn – Laparoscopic Simulator{' '}
-                          <span className="text-neutral-400 font-normal text-sm">
-                            | in partnership with LEPIC
-                          </span>
-                        </>
-                      )
+                    lang === 'pt' ? (
+                      <>
+                        LapIn – Simulador de Laparoscopia{' '}
+                        <span className="text-neutral-400 font-normal text-sm">
+                          | em parceria com a LEPIC
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        LapIn – Laparoscopic Simulator{' '}
+                        <span className="text-neutral-400 font-normal text-sm">
+                          | in partnership with LEPIC
+                        </span>
+                      </>
+                    )
                   }
                   date="2024"
                   description={
@@ -138,22 +136,21 @@ const Experience = ({ lang }: ExperienceProps) => {
                 />
                 <TimelineItem
                   title={
-                    lang === 'pt' ?
-                    (
-                        <>
-                          ElectroDrive - Carregamento de carros elétricos por indução{' '}
-                          <span className="text-neutral-400 font-normal text-sm">
-                            | em parceria com a IBM
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          ElectroDrive – Inductive charging for electric vehicles{' '}
-                          <span className="text-neutral-400 font-normal text-sm">
-                            | in partnership with IBM
-                          </span>
-                        </>
-                      )
+                    lang === 'pt' ? (
+                      <>
+                        ElectroDrive - Carregamento de carros elétricos por indução{' '}
+                        <span className="text-neutral-400 font-normal text-sm">
+                          | em parceria com a IBM
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        ElectroDrive – Inductive charging for electric vehicles{' '}
+                        <span className="text-neutral-400 font-normal text-sm">
+                          | in partnership with IBM
+                        </span>
+                      </>
+                    )
                   }
                   date="2023"
                   description={
