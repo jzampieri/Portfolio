@@ -11,10 +11,10 @@ const Header = ({ lang }: HeaderProps) => {
   const [open, setOpen] = useState(false);
 
   const links = lang === 'pt'
-    ? ['Sobre', 'Projetos', 'Habilidades', 'Contato']
-    : ['About', 'Projects', 'Skills', 'Contact'];
+    ? ['Sobre', 'Experiência' , 'Habilidades', 'Projetos', 'Contato']
+    : ['About', 'Experience' , 'Skills', 'Projects', 'Contact'];
 
-  const hrefs = ['#sobre', '#projetos', '#skills', '#contato'];
+  const hrefs = ['#sobre', '#skills', '#projects', '#contato'];
 
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -60,7 +60,7 @@ const Header = ({ lang }: HeaderProps) => {
     });
   };
 
-  const handleMouseLeave = (e: React.MouseEvent, target: HTMLElement) => {
+  const handleMouseLeave = (target: HTMLElement) => {
     gsap.to(target, {
       duration: 0.3,
       x: 0,
@@ -147,7 +147,7 @@ const Header = ({ lang }: HeaderProps) => {
                 },
               }}
               onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
-              onMouseLeave={(e) => handleMouseLeave(e, e.currentTarget)}
+              onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
               <div className='w-5xl h-20'>{links[i]}</div>
             </Box>

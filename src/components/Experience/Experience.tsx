@@ -29,7 +29,7 @@ const Experience = ({ lang }: ExperienceProps) => {
     <section id="experiencia" className="py-20 px-4 flex flex-col justify-center items-center">
       <div className="px-6 pt-6 pb-2">
         <p className="text-xs text-neutral-500 font-mono tracking-wide">
-          {lang === 'pt' ? '<experiencia/>' : '<experience/>'}
+          {lang === 'pt' ? '<experiência/>' : '<experience/>'}
         </p>
       </div>
       <div className="w-full max-w-4xl bg-[#1a1a1a] rounded-lg shadow-lg border border-neutral-700">
