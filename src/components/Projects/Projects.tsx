@@ -107,7 +107,7 @@ const Projects = ({ lang }: ProjectsProps) => {
   ];
 
   return (
-    <main id="projetos" className="w-full flex flex-col items-center mt-14 gap-24 px-4">
+    <main id="projects" className="w-full flex flex-col items-center mt-14 gap-24 px-4">
       <h2 className="text-xs font-bold text-center mt-20 text-neutral-500">
         {lang === 'pt' ? '<Projetos/>' : '<Projects/>'}
       </h2>

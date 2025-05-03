@@ -14,7 +14,7 @@ const Header = ({ lang }: HeaderProps) => {
     ? ['Sobre', 'Experiência' , 'Habilidades', 'Projetos', 'Contato']
     : ['About', 'Experience' , 'Skills', 'Projects', 'Contact'];
 
-  const hrefs = ['#sobre', '#skills', '#projects', '#contato'];
+  const hrefs = ['#sobre', '#experiencia' , '#skills', '#projects', '#contato'];
 
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);

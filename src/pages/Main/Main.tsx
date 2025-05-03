@@ -5,6 +5,7 @@ import Experience from "../../components/Experience/Experience";
 import About from "../../components/About/About";
 import Technologies from "../../components/Technologies/Technologies"
 import Projects from "../../components/Projects/Projects";
+import Contact from "../../components/Contact/Contact";
 
 interface MainProps {
   lang: 'pt' | 'en';
@@ -24,16 +25,17 @@ function Main({ lang, setLang }: MainProps) {
               : 'Hello, my name is Julio Zampieri'}
           </h1>
           <h2 className="text-xl text-gray-400">
-            {lang === 'pt' ? '(Entusiasta a) Engenheiro de Dados' : 'Data Engineer (Enthusiast)'}
+            {lang === 'pt' ? '(Entusiasta) Engenheiro de Dados' : 'Data Engineer (Enthusiast)'}
           </h2>
         </article>
       </section>
-      <About lang={lang}/>
-      <Experience lang={lang}/>
-      <Technologies lang={lang}/>
-      <Projects lang={lang}/>
+      <About lang={lang} />
+      <Experience lang={lang} />
+      <Technologies lang={lang} />
+      <Projects lang={lang} />
+      <Contact lang={lang} />
       <Social lang={lang} setLang={setLang} />
-      <Footer />
+      <Footer lang={lang} />
     </main>
   );
 }
