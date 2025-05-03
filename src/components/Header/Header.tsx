@@ -97,7 +97,7 @@ const Header = ({ lang }: HeaderProps) => {
         <Box
           className="menu"
           sx={{
-            position: 'absolute',
+            position: 'fixed',
             top: 0,
             right: 0,
             width: '100%',
@@ -110,6 +110,7 @@ const Header = ({ lang }: HeaderProps) => {
             zIndex: 10,
             opacity: 0,
             transform: 'translateY(-100%)',
+            px: 2,
           }}
         >
           {hrefs.map((href, i) => (
@@ -124,8 +125,9 @@ const Header = ({ lang }: HeaderProps) => {
                 textDecoration: 'none',
                 color: '#a1a1a1',
                 fontWeight: 500,
-                fontSize: '2rem',
-                marginBottom: '20px',
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+                marginBottom: { xs: '12px', sm: '16px', md: '20px' },
+                textAlign: 'center',
                 display: 'block',
                 '&:hover': {
                   color: '#fff',

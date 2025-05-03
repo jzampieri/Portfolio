@@ -184,9 +184,9 @@ const Technologies = ({ lang }: TechnologiesProps) => {
               placement="top"
               key={index}
             >
-              <div className="bg-[#1a1a1a]/80 backdrop-blur-md p-6 rounded-2xl shadow-lg ring-0 hover:ring-4 hover:ring-white/10 hover:scale-105 transition-all duration-300">
+              <div className="bg-[#1a1a1a]/80 backdrop-blur-md p-3 sm:p-6 rounded-2xl shadow-lg ring-0 hover:ring-4 hover:ring-white/10 hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center mb-4">{tech.icon}</div>
-                <h3 className="text-xl text-center text-white">{tech.name}</h3>
+                <h3 className="text-base text-center text-white">{tech.name}</h3>
               </div>
             </Tooltip>
           ))}
