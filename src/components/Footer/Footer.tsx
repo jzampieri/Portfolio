@@ -17,7 +17,7 @@ interface FooterProps {
     const { developedBy, rights } = translations[lang];
   
     return (
-      <footer className="w-full py-6 flex justify-center items-center text-sm text-neutral-500">
+      <footer className="w-full py-12 md:py-6 flex justify-center items-center text-sm text-neutral-500">
         <p className="text-center">
           {developedBy} <span className="text-white font-medium">Julio Zampieri</span> • {rights} © {new Date().getFullYear()}
         </p>

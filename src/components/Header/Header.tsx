@@ -11,10 +11,10 @@ const Header = ({ lang }: HeaderProps) => {
   const [open, setOpen] = useState(false);
 
   const links = lang === 'pt'
-    ? ['Sobre', 'Experiência' , 'Habilidades', 'Projetos', 'Contato']
-    : ['About', 'Experience' , 'Skills', 'Projects', 'Contact'];
+    ? ['Sobre', 'Experiência', 'Habilidades', 'Projetos', 'Contato']
+    : ['About', 'Experience', 'Skills', 'Projects', 'Contact'];
 
-  const hrefs = ['#sobre', '#experiencia' , '#skills', '#projects', '#contato'];
+  const hrefs = ['#sobre', '#experiencia', '#skills', '#projects', '#contato'];
 
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -86,12 +86,12 @@ const Header = ({ lang }: HeaderProps) => {
         </Typography>
 
         <div
-          className={`relative w-8 h-4 cursor-pointer z-20 ${open ? 'open' : ''}`}
+          className="relative w-8 h-8 flex flex-col justify-center items-center cursor-pointer z-20"
           onClick={toggleMenu}
         >
-          <div className={`bar bg-white h-1 w-full mb-2 transition-all duration-300 ease-in-out ${open ? 'rotate-45 top-2' : ''}`} />
-          <div className={`bar bg-white h-1 w-full mb-2 transition-all duration-300 ease-in-out ${open ? 'opacity-0' : ''}`} />
-          <div className={`bar bg-white h-1 w-full mb-2 transition-all duration-300 ease-in-out ${open ? 'rotate-45 bottom-2' : ''}`} />
+          <div className={`absolute top-[30%] w-full h-[2px] bg-white transition-all duration-300 ease-in-out ${open ? 'rotate-45 translate-y-[6px]' : ''}`} />
+          <div className={`absolute top-[50%] w-full h-[2px] bg-white transition-all duration-300 ease-in-out ${open ? 'opacity-0' : ''}`} />
+          <div className={`absolute top-[70%] w-full h-[2px] bg-white transition-all duration-300 ease-in-out ${open ? '-rotate-45 -translate-y-[6px]' : ''}`} />
         </div>
 
         <Box
@@ -151,7 +151,7 @@ const Header = ({ lang }: HeaderProps) => {
               onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
               onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
             >
-              <div className='w-5xl h-20'>{links[i]}</div>
+              <div className="w-5xl h-20">{links[i]}</div>
             </Box>
           ))}
         </Box>

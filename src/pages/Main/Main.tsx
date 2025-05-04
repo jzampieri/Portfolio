@@ -25,7 +25,7 @@ function Main({ lang, setLang }: MainProps) {
               : 'Hello, my name is Julio Zampieri'}
           </h1>
           <h2 className="text-xl text-gray-400">
-            {lang === 'pt' ? '(Entusiasta) Engenheiro de Dados' : 'Data Engineer (Enthusiast)'}
+            {lang === 'pt' ? 'Engenheiro de Dados (Entusiasta)' : 'Data Engineer (Enthusiast)'}
           </h2>
         </article>
       </section>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   SiReact,
   SiTypescript,
@@ -25,6 +26,10 @@ interface TechnologiesProps {
 }
 
 const Technologies = ({ lang }: TechnologiesProps) => {
+
+  const [openTooltipIndex, setOpenTooltipIndex] = useState<number | null>(null);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
   const content = {
     pt: {
       title: '<Tecnologias e Habilidades/>',
@@ -168,28 +173,48 @@ const Technologies = ({ lang }: TechnologiesProps) => {
   ];
 
   return (
-    <main className="w-full flex items-center flex-col" id='skills'>
+    <main className="w-full flex items-center flex-col" id="skills">
       <h2 className="text-xs font-bold text-center mb-8 mt-14 text-neutral-500">
         {content[lang].title}
       </h2>
       <section className="w-4/5 flex justify-center">
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {technologies.map((tech, index) => (
-            <Tooltip
-              title={
-                <span className="text-sm">
-                  {content[lang].items[tech.name as keyof typeof content['pt']['items']].description}
-                </span>
-              }
-              placement="top"
-              key={index}
-            >
-              <div className="bg-[#1a1a1a]/80 backdrop-blur-md p-3 sm:p-6 rounded-2xl shadow-lg ring-0 hover:ring-4 hover:ring-white/10 hover:scale-105 transition-all duration-300">
-                <div className="flex justify-center mb-4">{tech.icon}</div>
-                <h3 className="text-base text-center text-white">{tech.name}</h3>
-              </div>
-            </Tooltip>
-          ))}
+          {technologies.map((tech, index) => {
+            const isOpen = openTooltipIndex === index;
+            const tooltipProps = isMobile
+              ? {
+                  open: isOpen,
+                  disableHoverListener: true,
+                  disableFocusListener: true,
+                  disableTouchListener: true,
+                }
+              : {};
+
+            return (
+              <Tooltip
+                key={index}
+                title={
+                  <span className="text-sm">
+                    {content[lang].items[tech.name as keyof typeof content['pt']['items']].description}
+                  </span>
+                }
+                placement="top"
+                {...tooltipProps}
+              >
+                <div
+                  onClick={() => {
+                    if (isMobile) {
+                      setOpenTooltipIndex(isOpen ? null : index);
+                    }
+                  }}
+                  className="bg-[#1a1a1a]/80 backdrop-blur-md p-3 sm:p-6 rounded-2xl shadow-lg ring-0 hover:ring-4 hover:ring-white/10 hover:scale-105 transition-all duration-300"
+                >
+                  <div className="flex justify-center mb-4">{tech.icon}</div>
+                  <h3 className="text-base text-center text-white">{tech.name}</h3>
+                </div>
+              </Tooltip>
+            );
+          })}
         </div>
       </section>
     </main>
