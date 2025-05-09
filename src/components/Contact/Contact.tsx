@@ -71,7 +71,7 @@ const Contact = ({ lang }: ContactProps) => {
             </div>
 
             <a
-              href="/public/curriculum.zampieri.pdf"
+              href="/curriculum.zampieri.pdf"
               download
               className="group relative inline-block overflow-hidden mt-6 text-right"
             >
