@@ -1,4 +1,4 @@
-![Capa do Portfólio](./assets/portfolio-cover.png)
+![Capa do Portfólio](./src/assets/Screenshot_1.png)
 
 ## 📄 Overview
 
