@@ -15,9 +15,10 @@ import {
   SiDjango,
   SiJupyter,
   SiScikitlearn,
-  SiStreamlit
+  SiStreamlit,
+  SiMetabase
 } from 'react-icons/si';
-import { FaAws } from "react-icons/fa";
+import { FaAws, FaVuejs  } from "react-icons/fa";
 import { TbBrandCSharp } from "react-icons/tb";
 import { Tooltip } from '@mui/material';
 
@@ -36,6 +37,12 @@ const Technologies = ({ lang }: TechnologiesProps) => {
       items: {
         React: {
           description: '⚛️ Biblioteca JavaScript para criar interfaces de usuário modernas. Muito usada em aplicações web como Facebook, Instagram e dashboards interativos.',
+        },
+        Metabase: {
+          description: '📈 Plataforma de BI open source para criação de dashboards e análises interativas. Muito utilizada para visualização rápida de dados sem a necessidade de escrever código SQL.',
+        },
+        VueJS: {
+          description: '💚 Framework progressivo focado na construção de interfaces interativas, ideal para aplicações web modernas pela sua simplicidade e reatividade.'
         },
         TypeScript: {
           description: '📘 Superset do JavaScript que adiciona tipagem estática. Utilizado em grandes sistemas como VSCode e Angular para reduzir erros em tempo de desenvolvimento.',
@@ -95,6 +102,12 @@ const Technologies = ({ lang }: TechnologiesProps) => {
       items: {
         React: {
           description: '⚛️ JavaScript library for building modern user interfaces. Widely used in web apps like Facebook, Instagram, and interactive dashboards.',
+        },
+        Metabase: {
+          description: '📈 Open-source BI platform for building dashboards and performing interactive data analysis. Widely used for quickly visualizing data without writing SQL.',
+        },
+        VueJS: {
+          description: '💚 Progressive framework focused on building interactive user interfaces, ideal for modern web applications due to its simplicity and reactivity.'
         },
         TypeScript: {
           description: '📘 Superset of JavaScript that adds static typing. Used in large-scale apps like VSCode and Angular to reduce development-time errors.',
@@ -159,11 +172,13 @@ const Technologies = ({ lang }: TechnologiesProps) => {
     { name: 'Git', icon: <SiGit size={40} /> },
     { name: 'AWS', icon: <FaAws size={40} /> },
     { name: 'React', icon: <SiReact size={40} /> },
+    { name: 'VueJS', icon: <FaVuejs size={40} /> },
     { name: 'Apache Spark', icon: <SiApachespark size={40} /> },
     { name: 'MySQL', icon: <SiMysql size={40} /> },
     { name: 'PyTorch', icon: <SiPytorch size={40} /> },
     { name: 'Pandas', icon: <SiPandas size={40} /> },
     { name: 'NumPy', icon: <SiNumpy size={40} /> },
+    { name: 'Metabase', icon: <SiMetabase size={40} /> },
     { name: 'TensorFlow', icon: <SiTensorflow size={40} /> },
     { name: 'Django', icon: <SiDjango size={40} /> },
     { name: 'Jupyter', icon: <SiJupyter size={40} /> },

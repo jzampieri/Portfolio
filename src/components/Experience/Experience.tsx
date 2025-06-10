@@ -1,29 +1,46 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Rede from '../../assets/images/rededecisao.png'
+import CG from '../../assets/images/cgcontadores.png'
 
 interface ExperienceProps {
   lang: 'pt' | 'en';
 }
 
+interface ItemProps {
+  title: React.ReactNode;
+  date: string;
+  description: string;
+  icon?: string;      
+}
+
 const Experience = ({ lang }: ExperienceProps) => {
   const [activeTab, setActiveTab] = useState<'profissional' | 'projetos'>('profissional');
 
-  const TimelineItem = ({
-    title,
-    date,
-    description,
-  }: {
-    title: React.ReactNode;
-    date: string;
-    description: string;
-  }) => (
-    <div className="relative pl-6 pb-8 border-l border-neutral-600">
-      <div className="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-blue-400" />
-      <h4 className="text-base font-semibold text-white">{title}</h4>
-      <span className="text-xs text-neutral-400">{date}</span>
-      <p className="text-sm text-neutral-300 mt-1">{description}</p>
+const TimelineItem = ({ title, date, description, icon }: ItemProps) => (
+  <div className="relative pl-16 pb-10">        
+    <span className="absolute left-6 top-0 bottom-0 w-px bg-neutral-600" />
+
+    <span className="absolute left-4.5 top-[.5rem] w-3 h-3 rounded-full bg-blue-400" />
+
+    <div className="flex items-start gap-4">
+      {icon && (
+        <img
+          src={icon}
+          alt=""
+          className="w-10 h-10 object-contain rounded-md select-none"
+        />
+      )}
+
+      <div>
+        <h4 className="text-base font-semibold text-white">{title}</h4>
+        <span className="text-xs text-neutral-400">{date}</span>
+        <p className="text-sm text-neutral-300 mt-1">{description}</p>
+      </div>
     </div>
-  );
+  </div>
+);
+
 
   return (
     <section id="experiencia" className="py-20 px-4 flex flex-col justify-center items-center">
@@ -63,6 +80,22 @@ const Experience = ({ lang }: ExperienceProps) => {
                 transition={{ duration: 0.3 }}
               >
                 <TimelineItem
+                  icon={Rede}
+                  title={
+                    lang === 'pt'
+                    ? 'Especialista de Sistemas Pleno - Rede Decisão'
+                    : 'Systems Specialist (Full-Level) - Rede Decisão'
+                  }
+                  date={lang === 'pt' ? 'Abr 2025 — Atual' : 'Apr 2025 — Actually'}
+                  description={
+                    lang === 'pt'
+                      ? 'Desenvolvimento de aplicações web utilizando Vue, manipulação e testes de dados, visualizações em Power BI, modelagem e administração de bancos de dados, automações de processos com n8n e desenvolvimento de backend em PHP.'
+                      : 'Development of web applications using Vue, data manipulation and testing, Power BI visualizations, database modeling and administration, process automations with n8n, and backend development in PHP.'
+                  }
+                
+                />
+                <TimelineItem
+                  icon={CG}
                   title={
                     lang === 'pt'
                       ? 'Engenheiro de Software Júnior - CG CONTADORES'
