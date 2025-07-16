@@ -1,31 +1,5 @@
-![Capa do Portfólio](./src/assets/Screenshot_1.png)
+# Vue 3 + Vite
 
-## 📄 Overview
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-This repository contains the source code of my personal portfolio website as a data engineer. It highlights my work, skills, and professional background using modern frontend technologies.
-
-
-## 📁 Project Structure
-
-```
-src/
-├── components/      → Reusable UI components
-├── pages/Main/      → Page layout and sections
-├── assets/          → Images and static assets
-├── hooks/           → Custom React hooks
-└── App.tsx          → Application entry point
-```
-
-
-## 🚀 Getting Started
-
-To run the project locally:
-
-```bash
-git clone https://github.com/jzampieri/Portfolio
-cd Portfolio
-npm install
-npm run dev
-```
-
-> Requires: Node.js 18+, npm or yarn
+Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
