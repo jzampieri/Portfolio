@@ -54,7 +54,7 @@ export default {
         height: 75px;
 
         .project-about{
-            @extend %shadow-high;
+            @extend %shadow-low;
             gap: $mg-mini;
             display: flex;
             justify-content: center;
