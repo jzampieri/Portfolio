@@ -39,8 +39,8 @@ export default {
 
   &.focused .input-field,
   .input-field:focus {
-    border-color: var(--color-primary, #10a37f);
-    box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.2);
+    // border-color: var(--color-primary, #10a37f);
+    // box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.2);
   }
 
   &.hasValue .input-label {
@@ -55,13 +55,15 @@ export default {
 }
 
 .input-field {
-  font-family: inherit;
   font-size: 1rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid #333;
-  border-radius: 0.6rem;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: $border-radius;
   outline: none;
   transition: all 0.2s ease;
-  width: 100%;
+  background-color: $cinza;
+  width: 20rem;
+  max-height: 3rem;
 }
+
 </style>

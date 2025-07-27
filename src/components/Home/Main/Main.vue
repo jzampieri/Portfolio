@@ -1,7 +1,7 @@
 <template>
     <main>
         <section class="input-main">
-            <input-control/>
+            <input-control placeholder="Ask me anything..."/>
         </section>
     </main>
 </template>
