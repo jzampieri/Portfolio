@@ -1,16 +1,32 @@
 <template>
   <div class="input-wrapper" :class="{ focused, hasValue: modelValue }">
     <label v-if="label" :for="id" class="input-label">{{ label }}</label>
-    <input
-      :id="id"
-      type="text"
-      class="input-field"
-      :placeholder="placeholder"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      @focus="focused = true"
-      @blur="focused = false"
-    />
+    <div class="input-container">
+      <input
+        :id="id"
+        type="text"
+        class="input-field"
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        @focus="focused = true"
+        @blur="focused = false"
+      />
+      <button class="send-button" @click="$emit('submit')">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M3 20v-6l9-2-9-2V4l18 8-18 8Z"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -54,16 +70,37 @@ export default {
   transition: opacity 0.2s ease;
 }
 
-.input-field {
-  font-size: 1rem;
-  padding: 1rem 1rem;
-  border: none;
-  border-radius: $border-radius;
-  outline: none;
-  transition: all 0.2s ease;
+.input-container {
+  display: flex;
+  align-items: center;
   background-color: $cinza;
+  border-radius: $border-radius;
+  overflow: hidden;
   width: 20rem;
   max-height: 3rem;
 }
 
+.input-field {
+  flex: 1;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.send-button {
+  background: none;
+  border: none;
+  padding: 0 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #888;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #10a37f; // cor de destaque no hover
+  }
+}
 </style>
