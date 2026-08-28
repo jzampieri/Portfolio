@@ -8,4 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    // Honour an injected PORT so the dev server can be started alongside others.
+    port: process.env.PORT ? Number(process.env.PORT) : 5173,
+  },
 })

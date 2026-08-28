@@ -1,1 +1,819 @@
 @import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — derived from DESIGN.md (Apple-design-analysis)
+   Single accent (Action Blue). Alternating full-bleed surfaces.
+   Zero decorative gradients. Exactly one drop-shadow.
+   ============================================================ */
+
+@theme {
+  /* --- Brand & accent --- */
+  --color-action: #0066cc;
+  --color-action-focus: #0071e3;
+  --color-action-dark: #2997ff;
+
+  /* --- Surface --- */
+  --color-canvas: #ffffff;
+  --color-parchment: #f5f5f7;
+  --color-pearl: #fafafc;
+  --color-tile-1: #272729;
+  --color-tile-2: #2a2a2c;
+  --color-tile-3: #252527;
+  --color-void: #000000;
+  --color-chip: #d2d2d7;
+
+  /* --- Text --- */
+  --color-ink: #1d1d1f;
+  --color-ink-80: #333333;
+  --color-ink-48: #7a7a7a;
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #cccccc;
+
+  /* --- Hairlines --- */
+  --color-divider: #f0f0f0;
+  --color-hairline: #e0e0e0;
+
+  /* --- Type stacks (SF Pro on Apple platforms, Inter elsewhere) --- */
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-text: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono",
+    Menlo, Consolas, monospace;
+
+  /* --- Radius grammar --- */
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 18px;
+
+  /* --- Spacing rhythm --- */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 17px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 80px;
+
+  /* --- Breakpoints from DESIGN.md --- */
+  --breakpoint-sp: 30rem;   /* 480 */
+  --breakpoint-ph: 40rem;   /* 640 */
+  --breakpoint-tp: 45.9375rem; /* 735 */
+  --breakpoint-tl: 52.125rem;  /* 834 */
+  --breakpoint-sd: 66.75rem;   /* 1068 */
+  --breakpoint-dt: 90rem;      /* 1440 */
+}
+
+:root {
+  /* The single shadow in the entire system — imagery only. */
+  --shadow-media: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
+  --nav-h: 44px;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto; /* Lenis owns scrolling */
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  /* DESIGN.md: body copy runs at 17px, not 16px. */
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.44;
+  letter-spacing: -0.374px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-action);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-action-focus);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   TYPE SCALE — the boundary between Display and Text is fixed.
+   Display sizes carry negative tracking ("Apple tight").
+   ============================================================ */
+
+.t-hero {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.25rem, 12.5vw, 12rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+/* Masthead name: stacked lines that must always clear the fold. The height
+   budget is split by --hero-lines, so renaming (2 lines vs 3) rescales itself. */
+.t-hero-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.75rem, min(17vw, calc(58vh / var(--hero-lines, 2))), 16rem);
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+}
+
+.t-display-lg {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, min(3.2vw, 5vh), 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.t-display-md {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, min(2.2vw, 3.4vh), 2.125rem);
+  line-height: 1.14;
+  letter-spacing: -0.023em;
+}
+
+.t-lead {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.0625rem, min(1.6vw, 2.6vh), 1.75rem);
+  line-height: 1.28;
+  letter-spacing: 0.01em;
+}
+
+.t-tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.19;
+  letter-spacing: 0.231px;
+}
+
+.t-body {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.44;
+  letter-spacing: -0.374px;
+}
+
+.t-body-strong {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.24;
+  letter-spacing: -0.374px;
+}
+
+.t-caption {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.224px;
+}
+
+.t-caption-strong {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+}
+
+.t-fine {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.12px;
+}
+
+/* The editorial eyebrow from the layout references — monospace, tracked out. */
+.t-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   SURFACE TILES — the color change IS the section divider.
+   ============================================================ */
+
+.tile {
+  position: relative;
+  width: 100%;
+  padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 64px);
+}
+
+.tile--canvas {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+.tile--parchment {
+  background: var(--color-parchment);
+  color: var(--color-ink);
+}
+.tile--dark {
+  background: var(--color-tile-1);
+  color: var(--color-on-dark);
+}
+.tile--dark-2 {
+  background: var(--color-tile-2);
+  color: var(--color-on-dark);
+}
+.tile--dark-3 {
+  background: var(--color-tile-3);
+  color: var(--color-on-dark);
+}
+.tile--void {
+  background: var(--color-void);
+  color: var(--color-on-dark);
+}
+
+.shell {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.shell--reading {
+  max-width: 980px;
+}
+
+/* Hairline that inherits the surface's ink */
+.rule {
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.16;
+}
+
+/* ============================================================
+   ACTIONS — pill = "click me". Utility rect = chrome.
+   Press state is scale(0.95) system-wide.
+   ============================================================ */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  background: var(--color-action);
+  color: #fff;
+  font-family: var(--font-text);
+  font-size: 17px;
+  letter-spacing: -0.374px;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s;
+  will-change: transform;
+}
+.pill:active {
+  transform: scale(0.95);
+}
+
+.pill--ghost {
+  background: transparent;
+  color: var(--color-action);
+  border: 1px solid var(--color-action);
+}
+
+.pill--ghost-on-dark {
+  background: transparent;
+  color: var(--color-action-dark);
+  border: 1px solid var(--color-action-dark);
+}
+
+.util {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 15px;
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: #fff;
+  font-family: var(--font-text);
+  font-size: 14px;
+  letter-spacing: -0.224px;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.util:active {
+  transform: scale(0.95);
+}
+
+.link-action {
+  color: var(--color-action);
+}
+.link-action-on-dark {
+  color: var(--color-action-dark);
+}
+
+/* ============================================================
+   ANIMATION PRIMITIVES — GSAP sets the final state; these are
+   only the pre-paint defaults so nothing flashes before JS.
+   ============================================================ */
+
+.gs-fade {
+  opacity: 0;
+}
+
+.gs-line {
+  display: block;
+  overflow: hidden;
+}
+.gs-line > span {
+  display: block;
+  will-change: transform;
+}
+
+.gs-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.gs-rule {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Once the preloader hands over, the shell fades up. */
+.app-shell {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-fade,
+  .app-shell {
+    opacity: 1;
+  }
+  .gs-rule {
+    transform: none;
+  }
+  .pill,
+  .util {
+    transition: none;
+  }
+}
+
+/* Word-level mask used for headline reveals (SplitText-free). */
+.gs-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  vertical-align: bottom;
+}
+.gs-mask .gs-word {
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+/* Character mode keeps one mask per line, so letters rise independently. */
+.t-hero-name .gs-mask {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-mask .gs-word {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   NAVIGATION — hamburger, menu type, link swap
+   ============================================================ */
+
+.burger {
+  position: relative;
+  display: flex;
+  height: 34px;
+  width: 34px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  will-change: transform;
+}
+
+.burger__bar {
+  display: block;
+  height: 1.5px;
+  width: 22px;
+  background: #fff;
+  transition:
+    transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    width 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Second bar is shorter at rest, so the icon reads as a mark rather than a menu cliché. */
+.burger__bar:last-child {
+  width: 14px;
+}
+
+.burger:hover .burger__bar:last-child {
+  width: 22px;
+}
+
+.burger.is-open .burger__bar:first-child {
+  transform: translateY(4.25px) rotate(45deg);
+}
+.burger.is-open .burger__bar:last-child {
+  width: 22px;
+  transform: translateY(-4.25px) rotate(-45deg);
+}
+
+.menu-panel {
+  will-change: transform;
+}
+
+.t-menu {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, min(11vw, 13vh), 7rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .t-menu:hover {
+    color: var(--color-action-dark);
+  }
+}
+
+/* Label that swaps for a copy of itself on hover. */
+.link-swap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.link-swap > span {
+  display: block;
+  transition: transform 0.42s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.link-swap > span:last-child {
+  position: absolute;
+  inset: 0;
+  transform: translateY(105%);
+  color: var(--color-action-dark);
+}
+@media (hover: hover) {
+  .link-swap:hover > span:first-child {
+    transform: translateY(-105%);
+  }
+  .link-swap:hover > span:last-child {
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   ROW HOVER — experience and case cards
+   ============================================================ */
+
+.hover-row {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (hover: hover) {
+  .hover-row:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burger__bar,
+  .link-swap > span,
+  .t-menu,
+  .hover-row {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   DISPLAY NUMERALS AND THE CLOSING ADDRESS
+   With no imagery anywhere, these two carry the page visually.
+   ============================================================ */
+
+.t-metric {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.25rem, min(7.5vw, 10.5vh), 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-mail {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.375rem, min(5.2vw, 8vh), 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+/* Steady pulse next to the current role. */
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  border-radius: 9999px;
+  background: var(--color-action);
+  vertical-align: middle;
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* Row hover reads on light surfaces too, now that Work sits on canvas. */
+@media (hover: hover) {
+  .hover-row:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   PANELS — one screen each, no exception.
+   Head pinned to the top, body optically centred, foot at the
+   bottom. The height is spent on air, not on stacking.
+   ============================================================ */
+
+.panel {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  padding: calc(var(--nav-h) + clamp(20px, 4vh, 52px)) clamp(20px, 4vw, 72px)
+    clamp(20px, 4vh, 52px);
+}
+
+.panel-inner {
+  display: flex;
+  min-height: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.panel-head {
+  flex-shrink: 0;
+}
+
+/* justify-center is what gives every panel its breathing room. */
+.panel-body {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(16px, 3vh, 40px);
+}
+
+.panel-foot {
+  flex-shrink: 0;
+  padding-top: clamp(12px, 2vh, 24px);
+}
+
+/* ============================================================
+   POSITION RAIL
+   ============================================================ */
+
+.rail {
+  position: fixed;
+  right: clamp(10px, 1.6vw, 22px);
+  top: 50%;
+  z-index: 90;
+  transform: translateY(-50%);
+  mix-blend-mode: difference;
+}
+
+/* The button is the hit area; the line inside it is the graphic. */
+.rail-tick {
+  display: flex;
+  height: 16px;
+  width: 34px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.rail-tick::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 16px;
+  background: #fff;
+  opacity: 0.3;
+  transition:
+    width 0.45s cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.rail-tick:hover::before {
+  opacity: 0.7;
+}
+
+.rail-tick.is-active::before {
+  width: 30px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-tick::before {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   WORK TABS
+   ============================================================ */
+
+.wk-tab {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 18px);
+  padding: clamp(8px, 1.4vh, 14px) 0 clamp(8px, 1.4vh, 14px) 14px;
+  border-top: 1px solid var(--color-divider);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.55;
+}
+
+.wk-tab.is-active {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .wk-tab:hover {
+    opacity: 1;
+  }
+}
+
+/* Accent marker that grows down the left edge of the selected company. */
+.wk-bar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 0;
+  width: 2px;
+  background: var(--color-action);
+  transform: translateY(-50%);
+  transition:
+    height 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.wk-tab.is-active .wk-bar {
+  height: 62%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wk-tab,
+  .wk-bar {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   TOUCH — hit areas only. The desktop composition is untouched;
+   these rules fire on coarse pointers, where 44px is the floor.
+   ============================================================ */
+
+@media (pointer: coarse) {
+  /* Indicator, not a control: seven small targets on the edge the
+     thumb swipes caused more mistaps than they were worth. */
+  .rail {
+    pointer-events: none;
+  }
+
+  .rail-tick {
+    height: 14px;
+  }
+
+  .rail-tick::before {
+    width: 12px;
+  }
+
+  .rail-tick.is-active::before {
+    width: 24px;
+  }
+
+  /* The hover swap cannot fire on touch, so drop the clipping and the
+     duplicate label, and spend the freed room on a real hit area. */
+  .link-swap {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .link-swap > span:last-child {
+    display: none;
+  }
+
+  .burger {
+    height: 44px;
+    width: 44px;
+  }
+
+  .t-menu {
+    display: flex;
+    min-height: 52px;
+    align-items: center;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tap {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+}
